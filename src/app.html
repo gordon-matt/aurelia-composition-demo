@@ -1,0 +1,22 @@
+<template>
+  <require from="./app.css"></require>
+
+  <header>
+    <a href="#">
+      <aurelia-logo></aurelia-logo>
+      <span class="title">Composition</span>
+    </a>
+  </header>
+
+  <nav>
+    <ul>
+      <li repeat.for="item of router.navigation" class="${item.isActive ? 'active' : ''}">
+        ${item.title}
+      </li>
+    </ul>
+  </nav>
+
+  <main>
+    <router-view></router-view>
+  </main>
+</template>
