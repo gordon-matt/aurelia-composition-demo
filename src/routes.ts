@@ -2,6 +2,7 @@ export default [
   {
     route: '',
     moduleId: './pages/home',
-    title: 'Home'
+    title: 'Home',
+    nav: true
   }
 ];

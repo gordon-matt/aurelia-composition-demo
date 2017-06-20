@@ -236,6 +236,7 @@ textarea {
 
 $headerHeight: 60px;
 $navWidth: 250px;
+$accentColor: rgba(237,43,136,1);
 
 html {
   box-sizing: border-box;
@@ -286,6 +287,41 @@ nav {
   width: $navWidth;
   background-color: #1e1e1e;
   box-shadow: 2px 0px 14px 0px rgba(0, 0, 0, 0.1);
+
+  ul {
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    li {
+      line-height: 44px;
+      color: #777;
+      cursor: pointer;
+      transition: all .1s;
+
+      &:hover {
+        background: rgba(255,255,255,.5);
+      }
+
+      &.active {
+        background: #2e2e30;
+
+        a {
+          color: rgba(237,43,136,1);
+        }
+      }
+
+      a {
+        color: inherit;
+        display: block;
+        width: 100%;
+        padding: 0 0 0 1rem;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        text-decoration: none;
+      }
+    }
+  }
 }
 
 main {

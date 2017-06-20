@@ -3,15 +3,15 @@
 
   <header>
     <a href="#">
-      <aurelia-logo></aurelia-logo>
-      <span class="title">Composition</span>
+      <h1><aurelia-logo></aurelia-logo></h1>
+      <h2 class="title">Composition</h2>
     </a>
   </header>
 
   <nav>
     <ul>
       <li repeat.for="item of router.navigation" class="${item.isActive ? 'active' : ''}">
-        ${item.title}
+        <a href.bind="item.href">${item.title}</a>
       </li>
     </ul>
   </nav>
