@@ -8,4 +8,14 @@ export class App {
     config.map(routes);
     this.router = router;
   }
+
+  requestFullscreen() {
+    let docElm = document.documentElement;
+
+    if (docElm.requestFullscreen) {
+      docElm.requestFullscreen();
+    } else if (docElm.webkitRequestFullScreen) {
+      docElm.webkitRequestFullScreen();
+    }
+  }
 }

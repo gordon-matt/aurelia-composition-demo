@@ -331,3 +331,17 @@ main {
   bottom: 0;
   right: 0;
 }
+
+.fullscreen-button {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+}
+
+html:fullscreen .hide-fullscreen {
+  display: none;
+}
+
+html:-webkit-full-screen .hide-fullscreen {
+  display: none;
+}

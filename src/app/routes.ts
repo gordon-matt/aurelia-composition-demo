@@ -5,7 +5,7 @@ export default [
   { route: 'conventional-components', title: 'Conventional Components' },
   { route: 'configured-components', title: 'Configured Components' },
   { route: 'html-components', title: 'HTML Components' },
-  { route: 'the-component-lifecycle', title: 'The Component Lifecycle' },
+  { route: 'component-lifecycle', title: 'The Component Lifecycle' },
   { route: 'shadow-dom', title: 'Shadow DOM' },
   { route: 'part-composition', title: 'Part Composition' },
   { route: 'dynamic-composition', title: 'Dynamic Composition' }
@@ -16,6 +16,6 @@ export default [
     title: x.title,
     nav: true,
     activationStrategy: activationStrategy.replace,
-    settings: { view: `./pages/${x.route || 'home'}.html` }
+    settings: { view: `../${x.route || 'introduction'}/index.html` }
   };
 });
