@@ -236,7 +236,8 @@ textarea {
 
 $headerHeight: 60px;
 $navWidth: 250px;
-$accentColor: rgba(237,43,136,1);
+$accentColor: #ED2B88;
+$primaryColor: #6D50A2;
 
 html {
   box-sizing: border-box;
@@ -273,7 +274,7 @@ header {
     left: 150px;
     top: 20px;
     font-size: 24px;
-    color: rgba(109,80,162,1);
+    color: $primaryColor;
     text-transform: uppercase;
     font-weight: lighter;
   }
@@ -306,7 +307,7 @@ nav {
         background: #2e2e30;
 
         a {
-          color: rgba(237,43,136,1);
+          color: $accentColor;
         }
       }
 
