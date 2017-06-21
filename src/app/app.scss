@@ -330,6 +330,13 @@ main {
   left: $navWidth;
   bottom: 0;
   right: 0;
+  overflow-y: auto;
+
+  section {
+    article {
+      padding: 64px;
+    }
+  }
 }
 
 .fullscreen-button {
@@ -344,4 +351,8 @@ html:fullscreen .hide-fullscreen {
 
 html:-webkit-full-screen .hide-fullscreen {
   display: none;
+}
+
+name-tag {
+  margin: 8px;
 }
