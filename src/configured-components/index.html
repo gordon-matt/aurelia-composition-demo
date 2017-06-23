@@ -4,8 +4,9 @@
   <section>
     <demo-header>${model.title}</demo-header>
 
-    <article>
-      <name-tag name="Aurelia" color="#ED2B88"></name-tag>
+    <article class="demo-content">
+      <monaco-editor class="editor" source.bind="source"></monaco-editor>
+      <compose class="preview" view.bind="viewSource"></compose>
     </article>
   </section>
 </template>

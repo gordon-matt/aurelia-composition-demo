@@ -95,13 +95,6 @@ main {
   left: $navWidth;
   bottom: 0;
   right: 0;
-  overflow-y: auto;
-
-  section {
-    article {
-      padding: 64px;
-    }
-  }
 }
 
 .fullscreen-button {
@@ -118,6 +111,37 @@ html:-webkit-full-screen .hide-fullscreen {
   display: none;
 }
 
+router-view {
+  display: block;
+  width: 100%;
+  height: 100%;
+
+  section {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-content: stretch;
+
+    article {
+      flex: 1;
+    }
+  }
+}
+
 name-tag {
   margin: 8px;
+}
+
+.demo-content {
+  display: flex;
+
+  .editor {
+    flex: 2;
+  }
+
+  .preview {
+    flex: 3;
+    overflow-y: auto;
+  }
 }
