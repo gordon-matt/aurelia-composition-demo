@@ -20,10 +20,12 @@ export class Demo {
 
   activate(params, instruction: any) {
     this.model = instruction.navModel;
-    this.requires = `<require from="./${this.model.settings.folder}/name-tag"></require>`;
+    this.requires = this.model.settings.requires
+      .map(x => `<require from="${x}"></require>`)
+      .join('\n');
   }
 
   getViewStrategy() {
-    return `../${this.model.settings.folder}/index.html`;
+    return this.model.settings.view;
   }
 }
