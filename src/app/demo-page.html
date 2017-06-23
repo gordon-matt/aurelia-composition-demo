@@ -3,7 +3,15 @@
     <demo-header>${model.title}</demo-header>
 
     <article class="demo-content">
-      <monaco-editor class="editor" source.bind="activeFile.text"></monaco-editor>
+      <div class="editor">
+        <ul>
+          <li repeat.for="file of files" class="${file === activeFile ? 'active' : ''}">
+            <a click.trigger="activeFile = file">${file.name}</a>
+          </li>
+        </ul>
+        <monaco-editor source.bind="activeFile.text" language.bind="activeFile.language"></monaco-editor>
+      </div>
+
       <compose class="preview" view.bind="previewSource"></compose>
     </article>
   </section>

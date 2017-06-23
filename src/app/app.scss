@@ -138,8 +138,39 @@ name-tag {
 
   .editor {
     flex: 2;
-    border-right: 1px solid rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
     box-shadow: 2px 0px 14px 0px rgba(0, 0, 0, 0.1);
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+    
+    ul {
+      border-bottom: 1px solid #ccc;
+      
+      li {
+        display: inline-block;
+        line-height: 22px;
+        font-size: 18px;
+        color: #777;
+        border-right: 1px solid #ccc;
+        cursor: pointer;
+        transition: all .1s;
+        background: #f4f4f4;
+
+        a {
+          display: inline-block;
+          padding: 4px 16px;
+        }
+
+        &.active {
+          background: rgba(255, 255, 255, 0.5);
+          color: $accentColor;
+        }
+      }
+    }
+
+    monaco-editor {
+      flex: 1;
+    }
   }
 
   .preview {

@@ -6,6 +6,9 @@ import 'vs/editor/editor.main';
 
 declare var monaco;
 
+//hack
+monaco.languages.typescript.typescriptDefaults._compilerOptions.experimentalDecorators = true;
+
 @autoinject
 export class MonacoEditor {
   @bindable({ defaultBindingMode: bindingMode.twoWay }) source = '';
@@ -24,6 +27,12 @@ export class MonacoEditor {
     }
     
     this.editor.setValue(newValue);
+  }
+
+  languageChanged(newValue) {
+    if (this.editor) {
+      monaco.editor.setModelLanguage(this.editor.getModel(), newValue);
+    }
   }
 
   attached() {

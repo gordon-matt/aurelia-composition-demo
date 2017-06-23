@@ -38,8 +38,10 @@ export class Demo {
       let fileTexts = await Promise.all(responses.map(x => x.text()));
 
       this.files = fileTexts.map((text, index) => {
+        let name = this.model.settings.files[index];
         return {
-          name: this.model.settings.files[index],
+          name: name.substring(name.lastIndexOf('/') + 1),
+          language: name.indexOf('.ts') !== -1 ? 'typescript' : 'html',
           text
         }
       });
