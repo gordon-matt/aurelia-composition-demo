@@ -3,72 +3,92 @@ import {join} from 'aurelia-path';
 
 export default [
   { 
-    route: '', 
+    folder: 'introduction', 
     title: 'Introduction',
-    requires: [
-      'name-tag'
-    ]
+    view: '../introduction/index.html'
   },
   { 
-    route: 'conventional-components', 
+    folder: 'conventional-components', 
     title: 'Conventional Components',
     requires: [
       'name-tag'
+    ],
+    files: [
+      'demo.html',
+      'name-tag.ts',
+      'name-tag.html'
     ]
   },
   { 
-    route: 'configured-components', 
+    folder: 'configured-components', 
     title: 'Configured Components',
     requires: [
       'name-tag'
+    ],
+    files: [
+      'demo.html',
+      'name-tag.ts',
+      'name-tag.html'
     ]
   },
   { 
-    route: 'shadow-dom', 
+    folder: 'shadow-dom', 
     title: 'Shadow DOM',
     requires: [
       'name-tag'
-    ] 
-  },
-  { 
-    route: 'html-components', 
-    title: 'HTML Components',
-    requires: [
+    ],
+    files: [
+      'demo.html',
+      'name-tag.ts',
       'name-tag.html'
     ] 
   },
   { 
-    route: 'component-lifecycle',
-    title: 'The Component Lifecycle',
+    folder: 'html-components', 
+    title: 'HTML Components',
     requires: [
-      'name-tag'
+      'name-tag.html'
+    ],
+    files: [
+      'demo.html',
+      'name-tag.html'
     ]
   },
   { 
-    route: 'part-composition', 
+    folder: 'component-lifecycle',
+    title: 'The Component Lifecycle',
+    requires: [],
+    files: [
+      'demo.html'
+    ]
+  },
+  { 
+    folder: 'part-composition', 
     title: 'Part Composition',
-    requires: [
-      'name-tag'
+    requires: [],
+    files: [
+      'demo.html'
     ] 
   },
   { 
-    route: 'dynamic-composition', 
+    folder: 'dynamic-composition', 
     title: 'Dynamic Composition',
-    requires: [
-      'name-tag'
+    requires: [],
+    files: [
+      'demo.html'
     ]
   }
-].map(x => {
-  let folder = x.route ? `./${x.route}`  : './introduction';
+].map((x: any) => {
   return {
-    route: x.route,
+    route: x.folder === 'introduction' ? '' : x.folder,
     moduleId: `./demo-page`,
     title: x.title,
     nav: true,
     activationStrategy: activationStrategy.replace,
     settings: { 
-      view: `../${folder}/index.html`, 
-      requires: x.requires.map(x => join(folder, x))
+      view: x.view ? x.view : './demo-page.html', 
+      requires: x.requires ? x.requires.map(y => join(x.folder, y)) : null,
+      files: x.files ? x.files.map(y => join('src', join(x.folder, y))) : null
     }
   };
 });

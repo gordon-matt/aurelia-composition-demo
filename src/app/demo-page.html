@@ -1,0 +1,10 @@
+<template>
+  <section>
+    <demo-header>${model.title}</demo-header>
+
+    <article class="demo-content">
+      <monaco-editor class="editor" source.bind="activeFile.text"></monaco-editor>
+      <compose class="preview" view.bind="previewSource"></compose>
+    </article>
+  </section>
+</template>
