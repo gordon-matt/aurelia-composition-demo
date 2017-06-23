@@ -138,10 +138,13 @@ name-tag {
 
   .editor {
     flex: 2;
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 2px 0px 14px 0px rgba(0, 0, 0, 0.1);
   }
 
   .preview {
     flex: 3;
+    padding: 32px;
     overflow-y: auto;
   }
 }
