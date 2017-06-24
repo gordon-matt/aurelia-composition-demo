@@ -1,1 +1,15 @@
-This is the part composition demo...
+<drop-down items.bind="people"
+           selected-item.bind="selectedPerson"
+           display-member-path="firstName">
+</drop-down>
+
+<drop-down items.bind="people"
+           selected-item.bind="selectedPerson"
+           display-member-path="firstName">
+  <template replace-part="selected-item-template">
+    ${selectedItem.firstName} is Selected
+  </template>
+  <template replace-part="list-item-template">
+    ${item.firstName} ${item.lastName}
+  </template>
+</drop-down>

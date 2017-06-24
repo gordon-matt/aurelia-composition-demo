@@ -7,10 +7,11 @@ import {autoinject} from 'aurelia-dependency-injection';
 
 @autoinject
 export class Demo {
-  model: NavModel;
+  settings: any;
   requires: string;
   files: any[];
   activeFile: any;
+  model: any;
 
   constructor(private http: HttpClient) {}
 
@@ -25,20 +26,21 @@ export class Demo {
   }
 
   async activate(params, instruction: any) {
-    this.model = instruction.navModel;
+    this.settings = instruction.navModel.settings;
+    this.model = this.settings.model;
 
-    if (this.model.settings.requires) {
-      this.requires = this.model.settings.requires
+    if (this.settings.requires) {
+      this.requires = this.settings.requires
         .map(x => `<require from="${x}"></require>`)
         .join('\n');
     }
 
-    if (this.model.settings.files) {
-      let responses = await Promise.all(<Promise<Response>[]>this.model.settings.files.map(x => this.http.fetch(x)));
+    if (this.settings.files) {
+      let responses = await Promise.all(<Promise<Response>[]>this.settings.files.map(x => this.http.fetch(x)));
       let fileTexts = await Promise.all(responses.map(x => x.text()));
 
       this.files = fileTexts.map((text, index) => {
-        let name = this.model.settings.files[index];
+        let name = this.settings.files[index];
         return {
           name: name.substring(name.lastIndexOf('/') + 1),
           language: name.indexOf('.ts') !== -1 ? 'typescript' : 'html',
@@ -51,6 +53,6 @@ export class Demo {
   }
 
   getViewStrategy() {
-    return this.model.settings.view;
+    return this.settings.view;
   }
 }

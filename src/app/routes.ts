@@ -1,6 +1,17 @@
 import {activationStrategy} from 'aurelia-router';
 import {join} from 'aurelia-path';
 
+const people = [
+  {
+    firstName: 'John',
+    lastName: 'Doe'
+  },
+  {
+    firstName: 'Jane',
+    lastName: 'Doe'
+  }
+];
+
 export default [
   { 
     folder: 'introduction', 
@@ -65,10 +76,18 @@ export default [
   { 
     folder: 'part-composition', 
     title: 'Part Composition',
-    requires: [],
+    requires: [
+      'drop-down'
+    ],
     files: [
-      'demo.html'
-    ] 
+      'demo.html',
+      'drop-down.html',
+      'drop-down.ts'
+    ],
+    model: {
+      people: people,
+      selectedPerson: people[0]
+    }
   },
   { 
     folder: 'dynamic-composition', 
@@ -86,7 +105,9 @@ export default [
     nav: true,
     activationStrategy: activationStrategy.replace,
     settings: { 
+      title: x.title,
       view: x.view ? x.view : './demo-page.html', 
+      model: x.model,
       requires: x.requires ? x.requires.map(y => join(x.folder, y)) : null,
       files: x.files ? x.files.map(y => join('src', join(x.folder, y))) : null
     }

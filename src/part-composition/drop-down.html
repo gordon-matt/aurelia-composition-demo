@@ -1,0 +1,17 @@
+<template>
+  <require from="./dynamic-expression-binding-behavior"></require>
+
+  <div click.trigger="toggleList($event)">
+    <span replaceable part="selected-item-template"
+          textcontent.bind="selectedItem & dynamicExpression:displayMemberPath"></span>
+  </div>
+
+  <ul if.bind="listIsOpen">
+    <li repeat.for="item of items"
+        click.trigger="select(item)"
+        class="${selectedItem === item ? 'selected' : ''}">
+      <span replaceable part="list-item-template"
+            textcontent.bind="item & dynamicExpression:displayMemberPath"></span>
+    </li>
+  </ul>
+</template>

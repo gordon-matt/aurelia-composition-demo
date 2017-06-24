@@ -1,6 +1,6 @@
 <template>
   <section>
-    <demo-header>${model.title}</demo-header>
+    <demo-header>${settings.title}</demo-header>
 
     <article class="demo-content">
       <div class="editor">
@@ -12,7 +12,7 @@
         <monaco-editor source.bind="activeFile.text" language.bind="activeFile.language"></monaco-editor>
       </div>
 
-      <compose class="preview" view.bind="previewSource"></compose>
+      <compose class="preview" view.bind="previewSource" view-model.bind="model"></compose>
     </article>
   </section>
 </template>
