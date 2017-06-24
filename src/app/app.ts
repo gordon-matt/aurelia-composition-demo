@@ -3,10 +3,22 @@ import routes from './routes';
 
 export class App {
   router: Router;
+  navigationIsOpen = false;
+  closeNavigation = () => this.toggleNavigation();
 
   configureRouter(config: RouterConfiguration, router: Router) {
     config.map(routes);
     this.router = router;
+  }
+
+  activate() {
+    document.addEventListener('keyup', evt => {
+      if (evt.keyCode === 34) {
+        this.next();
+      } else if (evt.keyCode == 33) {
+        this.previous();
+      }
+    });
   }
 
   requestFullscreen() {
@@ -19,14 +31,18 @@ export class App {
     }
   }
 
-  activate() {
-    document.addEventListener('keyup', evt => {
-      if (evt.keyCode === 34) {
-        this.next();
-      } else if (evt.keyCode == 33) {
-        this.previous();
-      }
-    });
+  toggleNavigation(event?: Event) {
+    if (this.navigationIsOpen) {
+      this.navigationIsOpen = false;
+      document.removeEventListener('click', this.closeNavigation);
+    } else {
+      this.navigationIsOpen = true;
+      document.addEventListener('click', this.closeNavigation);
+    }
+
+    if (event) {
+      event.stopPropagation();
+    }
   }
 
   next() {

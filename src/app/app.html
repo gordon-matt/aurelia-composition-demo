@@ -3,13 +3,17 @@
   <require from="./app.css"></require>
 
   <header>
-    <a href="#">
+    <a click.trigger="toggleNavigation($event)">
       <h1><aurelia-logo></aurelia-logo></h1>
       <h2 class="title">Composition</h2>
     </a>
   </header>
 
-  <nav>
+  <main>
+    <router-view></router-view>
+  </main>
+
+  <nav class="${navigationIsOpen ? 'active' : ''}">
     <ul>
       <li repeat.for="item of router.navigation" class="${item.isActive ? 'active' : ''}">
         <a href.bind="item.href">${item.title}</a>
@@ -17,9 +21,9 @@
     </ul>
   </nav>
 
-  <main>
-    <router-view></router-view>
-  </main>
-
-  <button class="fullscreen-button hide-fullscreen" click.trigger="requestFullscreen()">Fullscreen</button>
+  <div class="controls">
+    <button click.trigger="previous()">Prev</button>
+    <button click.trigger="next()">Next</button>
+    <button class="fullscreen-button hide-fullscreen" click.trigger="requestFullscreen()">Fullscreen</button>
+  </div>
 </template>

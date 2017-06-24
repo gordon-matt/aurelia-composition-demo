@@ -29,6 +29,10 @@ header {
   background-color: #f4f4f4;
   box-shadow: -20px 0 14px 0 rgba(0,0,0,.1), inset 0 -1px 0 rgba(0,0,0,.1);
 
+  a {
+    cursor: pointer;
+  }
+
   aurelia-logo {
     margin-left: 10px;
   }
@@ -47,11 +51,16 @@ header {
 nav {
   position: absolute;
   top: $headerHeight;
-  left: 0;
+  left: -$navWidth;
   bottom: 0;
   width: $navWidth;
   background-color: #1e1e1e;
-  box-shadow: 2px 0px 14px 0px rgba(0, 0, 0, 0.1);
+  transition: left .3s;
+
+  &.active {
+    box-shadow: 2px 2px 8px 0px rgba(0, 0, 0, 0.5);
+    left: 0;
+  }
 
   ul {
     overflow-x: hidden;
@@ -92,12 +101,12 @@ nav {
 main {
   position: absolute;
   top: $headerHeight;
-  left: $navWidth;
+  left: 0;
   bottom: 0;
   right: 0;
 }
 
-.fullscreen-button {
+.controls {
   position: absolute;
   bottom: 16px;
   right: 16px;
