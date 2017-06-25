@@ -23,10 +23,10 @@ export class DropDown {
   toggleList = (event?: Event) => {
     if (this.listIsOpen) {
       this.listIsOpen = false;
-      document.removeEventListener('click', this.toggleList);
+      DOM.removeEventListener('click', this.toggleList, false);
     } else {
       this.listIsOpen = true;
-      this.taskQueue.queueTask(() => document.addEventListener('click', this.toggleList));
+      this.taskQueue.queueTask(() => DOM.addEventListener('click', this.toggleList, false));
     }
   }
 }

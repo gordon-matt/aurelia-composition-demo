@@ -1,10 +1,15 @@
 import {RouterConfiguration, Router} from 'aurelia-router';
+import {TaskQueue} from 'aurelia-task-queue';
+import {autoinject} from 'aurelia-dependency-injection'; 
+import {DOM} from 'aurelia-pal';
 import routes from './routes';
 
+@autoinject
 export class App {
   router: Router;
   navigationIsOpen = false;
-  closeNavigation = () => this.toggleNavigation();
+
+  constructor(private taskQueue: TaskQueue) {}
 
   configureRouter(config: RouterConfiguration, router: Router) {
     config.map(routes);
@@ -12,13 +17,13 @@ export class App {
   }
 
   activate() {
-    document.addEventListener('keyup', evt => {
+    DOM.addEventListener('keyup', evt => {
       if (evt.keyCode === 34) {
         this.next();
       } else if (evt.keyCode == 33) {
         this.previous();
       }
-    });
+    }, false);
   }
 
   requestFullscreen() {
@@ -31,17 +36,13 @@ export class App {
     }
   }
 
-  toggleNavigation(event?: Event) {
+  toggleNavigation = (event?: Event) => {
     if (this.navigationIsOpen) {
       this.navigationIsOpen = false;
-      document.removeEventListener('click', this.closeNavigation);
+      DOM.removeEventListener('click', this.toggleNavigation, false);
     } else {
       this.navigationIsOpen = true;
-      document.addEventListener('click', this.closeNavigation);
-    }
-
-    if (event) {
-      event.stopPropagation();
+      this.taskQueue.queueTask(() => DOM.addEventListener('click', this.toggleNavigation, false));
     }
   }
 
