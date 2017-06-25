@@ -1,15 +1,31 @@
 <drop-down items.bind="people"
            selected-item.bind="selectedPerson"
-           display-member-path="firstName">
+           display-expression="firstName">
 </drop-down>
+
+<br>
 
 <drop-down items.bind="people"
            selected-item.bind="selectedPerson"
-           display-member-path="firstName">
+           display-expression="firstName">
+  <template replace-part="list-item-template">
+    <span css="color: ${item.favoriteColor}">${item.firstName} ${item.lastName}</span>
+  </template>
+</drop-down>
+
+<br>
+
+<drop-down items.bind="people"
+           selected-item.bind="selectedPerson">
   <template replace-part="selected-item-template">
-    ${selectedItem.firstName} is Selected
+    Hello, my name is
+    <span css="color: ${selectedItem.favoriteColor}">
+      ${selectedItem.firstName}
+    </span>!
   </template>
   <template replace-part="list-item-template">
-    ${item.firstName} ${item.lastName}
+    <name-tag color.bind="item.favoriteColor">
+      ${item.firstName} ${item.lastName}
+    </name-tag>
   </template>
 </drop-down>

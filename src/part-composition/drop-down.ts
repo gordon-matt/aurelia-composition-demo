@@ -1,29 +1,30 @@
 import {bindable} from 'aurelia-templating';
 import {bindingMode} from 'aurelia-binding';
+import {TaskQueue} from 'aurelia-task-queue';
+import {autoinject} from 'aurelia-dependency-injection'; 
 
+@autoinject
 export class DropDown {
   @bindable items;
-  @bindable displayMemberPath = '$this';
+  @bindable displayExpression = '$this';
   @bindable({ defaultBindingMode: bindingMode.twoWay }) selectedItem;
 
+  button: HTMLElement;
   listIsOpen = false;
-  closeList = () => this.toggleList();
+
+  constructor(private taskQueue: TaskQueue) {}
 
   select(item) {
     this.selectedItem = item;
   }
 
-  toggleList(event?: Event) {
+  toggleList = (event?: Event) => {
     if (this.listIsOpen) {
       this.listIsOpen = false;
-      document.removeEventListener('click', this.closeList);
+      document.removeEventListener('click', this.toggleList);
     } else {
       this.listIsOpen = true;
-      document.addEventListener('click', this.closeList);
-    }
-
-    if (event) {
-      event.stopPropagation();
+      this.taskQueue.queueTask(() => document.addEventListener('click', this.toggleList));
     }
   }
 }

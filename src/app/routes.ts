@@ -4,11 +4,13 @@ import {join} from 'aurelia-path';
 const people = [
   {
     firstName: 'John',
-    lastName: 'Doe'
+    lastName: 'Doe',
+    favoriteColor: 'blue'
   },
   {
     firstName: 'Jane',
-    lastName: 'Doe'
+    lastName: 'Doe',
+    favoriteColor: 'red'
   }
 ];
 
@@ -77,7 +79,8 @@ export default [
     folder: 'part-composition', 
     title: 'Part Composition',
     requires: [
-      'drop-down'
+      'drop-down',
+      'name-tag.html'
     ],
     files: [
       'demo.html',
