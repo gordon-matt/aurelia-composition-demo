@@ -1,1 +1,7 @@
-This is the dynamic composition demo...
+<ul repeat.for="widget of dashboard.widgets">
+  <li>
+    <widget model.bind="widget"></widget>
+  </li>
+</ul>
+
+<widget-sidebar></widget-sidebar>

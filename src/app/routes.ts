@@ -14,11 +14,31 @@ const people = [
   }
 ];
 
+const widgets = [
+ {
+  type: 'a',
+  title: 'Widget A'
+ },
+ {
+  type: 'b',
+  title: 'Widget B'
+ },
+ {
+  type: 'c',
+  title: 'Widget C'
+ },
+ {
+  type: 'd',
+  title: 'Widget D'
+ }
+];
+
+
 export default [
   { 
-    folder: 'introduction', 
-    title: 'Introduction',
-    view: '../introduction/index.html'
+    folder: 'title', 
+    title: 'Title',
+    view: '../title/index.html'
   },
   { 
     folder: 'basic-components', 
@@ -87,14 +107,23 @@ export default [
   { 
     folder: 'dynamic-composition', 
     title: 'Dynamic Composition',
-    requires: [],
+    requires: [
+      './widget',
+      './widget-sidebar'
+    ],
     files: [
       'demo.html'
-    ]
+    ],
+    model: {
+      people: people,
+      dashboard: {
+        widgets: widgets        
+      }
+    }
   }
 ].map((x: any) => {
   return {
-    route: x.folder === 'introduction' ? '' : x.folder,
+    route: x.folder === 'title' ? '' : x.folder,
     moduleId: `./demo-page`,
     title: x.title,
     nav: true,

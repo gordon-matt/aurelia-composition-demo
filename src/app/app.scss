@@ -142,6 +142,25 @@ name-tag {
   margin: 8px;
 }
 
+.title-screen {
+  background-image: url('img/background@2x.png');
+  color: white;
+  text-align: center;
+
+  h2 {
+    font-size: 64px;
+  }
+
+  h3 {
+    font-size: 32px;
+  }
+
+  hr {
+    width: 100%;
+    margin: 16px;
+  }
+}
+
 .demo-content {
   display: flex;
 

@@ -1,0 +1,27 @@
+widget {
+  display: inline-block;
+  border: 1px solid #cccccc;
+  margin: 8px;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.3);
+
+  .widget-header {
+    border-bottom: 1px solid #cccccc;
+    padding: 4px;
+    display: flex;
+    font-size: 14px;
+    
+    h4 {
+      flex: 1;
+    }
+
+    .button-settings {
+      cursor: pointer;
+    }
+  }
+
+
+  compose {
+    display: block;
+    padding: 8px;
+  }
+}
