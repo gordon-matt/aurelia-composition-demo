@@ -17,15 +17,15 @@
 
 <drop-down items.bind="people"
            selected-item.bind="selectedPerson">
-  <template replace-part="selected-item-template">
+  <selected-item-template>
     Hello, my name is
     <span css="color: ${favoriteColor}">
       ${firstName}
     </span>!
-  </template>
-  <template replace-part="list-item-template">
+  </selected-item-template>
+  <list-item-template>
     <name-tag color.bind="favoriteColor">
       ${firstName} ${lastName}
     </name-tag>
-  </template>
+  </list-item-template>
 </drop-down>
