@@ -112,7 +112,11 @@ export default [
       './widget-sidebar'
     ],
     files: [
-      'demo.html'
+      'demo.html',
+      'widget.ts',
+      'widget.html',
+      'widget-sidebar.ts',
+      'widget-sidebar.html'
     ],
     model: {
       people: people,
