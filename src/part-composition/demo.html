@@ -8,8 +8,8 @@
 <drop-down items.bind="people"
            selected-item.bind="selectedPerson"
            display-expression="firstName">
-  <template replace-part="list-item-template">
-    <span css="color: ${item.favoriteColor}">${item.firstName} ${item.lastName}</span>
+  <template replace-part="selected-item-template">
+    <span css="color: ${favoriteColor}">${firstName} ${lastName}</span>
   </template>
 </drop-down>
 
@@ -19,13 +19,13 @@
            selected-item.bind="selectedPerson">
   <template replace-part="selected-item-template">
     Hello, my name is
-    <span css="color: ${selectedItem.favoriteColor}">
-      ${selectedItem.firstName}
+    <span css="color: ${favoriteColor}">
+      ${firstName}
     </span>!
   </template>
   <template replace-part="list-item-template">
-    <name-tag color.bind="item.favoriteColor">
-      ${item.firstName} ${item.lastName}
+    <name-tag color.bind="favoriteColor">
+      ${firstName} ${lastName}
     </name-tag>
   </template>
 </drop-down>

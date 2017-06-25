@@ -5,16 +5,20 @@
   <div class="container">
     <div class="button ${listIsOpen ? 'open' : ''}"
          click.trigger="toggleList($event)" ref="button">
-      <span replaceable part="selected-item-template"
-            textcontent.bind="selectedItem & dynamicExpression:displayExpression"></span>
+      <div class="selected-item-container" with.bind="selectedItem">
+        <span replaceable part="selected-item-template"
+              textcontent.bind="$this & dynamicExpression:displayExpression"></span>
+      </div>
     </div>
 
     <div if.bind="listIsOpen" class="options-container">
       <ul class="options" css="min-width: ${button.offsetWidth & oneTime}px">
         <li repeat.for="item of items"
             click.trigger="select(item)">
-          <span replaceable part="list-item-template"
-                textcontent.bind="item & dynamicExpression:displayExpression"></span>
+          <div with.bind="item">
+            <span replaceable part="list-item-template"
+                  textcontent.bind="$this & dynamicExpression:displayExpression"></span>
+          </div>
         </li>
       </ul>
     </div>

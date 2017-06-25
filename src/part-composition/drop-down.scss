@@ -13,6 +13,10 @@ drop-down {
       background: #eeeeee;
       cursor: pointer;
 
+      & > .selected-item-container {
+        display: inline-block;
+      }
+
       &::after {
         content: '▾';
         display: inline-block;
@@ -28,7 +32,7 @@ drop-down {
 
     > .options-container {
       position: relative;
-      
+
       > .options {
         position: absolute;
         top: 0px;
