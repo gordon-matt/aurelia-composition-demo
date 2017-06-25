@@ -21,8 +21,8 @@ export default [
     view: '../introduction/index.html'
   },
   { 
-    folder: 'conventional-components', 
-    title: 'Conventional Components',
+    folder: 'basic-components', 
+    title: 'Basic Components',
     requires: [
       'name-tag'
     ],
@@ -65,14 +65,6 @@ export default [
     files: [
       'demo.html',
       'name-tag.html'
-    ]
-  },
-  { 
-    folder: 'component-lifecycle',
-    title: 'The Component Lifecycle',
-    requires: [],
-    files: [
-      'demo.html'
     ]
   },
   { 
