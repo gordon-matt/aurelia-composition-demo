@@ -188,7 +188,7 @@ name-tag {
 
   h2 {
     font-size: 64px;
-    padding-bottom: 32px;
+    padding-bottom: 16px;
     margin: 0 64px;
     border-bottom: 2px solid white;
     text-shadow: 0 2px 5px rgba(0,0,0,.5);
@@ -196,8 +196,14 @@ name-tag {
   }
 
   h3 {
-    margin-top: 32px;
-    font-size: 32px;
+    margin-top: 16px;
+    font-size: 46px;
+    text-shadow: 0 2px 5px rgba(0,0,0,.5);
+  }
+
+  h4 {
+    margin-top: 8px;
+    font-style: italic;
   }
 }
 

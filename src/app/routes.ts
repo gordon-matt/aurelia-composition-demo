@@ -148,6 +148,11 @@ export default [
     nav: true,
     activationStrategy: activationStrategy.replace,
     settings: { 
+      presentationTitle: 'Exploring UI Composition in Aurelia',
+      presenter: {
+        name: 'Rob Eisenberg',
+        twitterUsername: '@EisenbergEffect'
+      },
       title: x.title,
       agendaItem: !!x.agendaItem,
       view: x.view ? x.view : './demo-page.html', 
