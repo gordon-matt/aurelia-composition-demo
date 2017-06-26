@@ -219,6 +219,16 @@ name-tag {
   }
 }
 
+.external-link {
+  position: absolute;
+  bottom: 32px;
+  text-align: center;
+  display: block;
+  width: 100%;
+  font-size: 32px;
+  color: $accentColor;
+}
+
 .demo-content {
   display: flex;
 

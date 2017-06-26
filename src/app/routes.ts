@@ -1,6 +1,8 @@
 import {activationStrategy} from 'aurelia-router';
 import {join} from 'aurelia-path';
 
+const githubLink = 'https://github.com/EisenbergEffect/aurelia-composition-demo';
+
 const people = [
   {
     firstName: 'John',
@@ -45,7 +47,8 @@ export default [
   { 
     folder: 'agenda', 
     title: 'Agenda',
-    view: '../app/agenda.html'
+    view: '../app/agenda.html',
+    link: githubLink
   },
   { 
     folder: 'basic-components', 
@@ -129,7 +132,8 @@ export default [
   { 
     folder: 'review', 
     title: 'Review',
-    view: '../app/agenda.html'
+    view: '../app/agenda.html',
+    link: githubLink
   },
   { 
     folder: 'questions', 
@@ -148,6 +152,7 @@ export default [
       agendaItem: !!x.agendaItem,
       view: x.view ? x.view : './demo-page.html', 
       model: x.model,
+      link: x.link,
       requires: x.requires ? x.requires.map(y => join(x.folder, y)) : null,
       files: x.files ? x.files.map(y => join('src', join(x.folder, y))) : null
     }
