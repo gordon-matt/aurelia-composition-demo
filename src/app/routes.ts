@@ -72,8 +72,8 @@ export default [
     ]
   },
   { 
-    folder: 'shadow-dom', 
-    title: 'Shadow DOM',
+    folder: 'slot-composition', 
+    title: 'Slot Composition',
     agendaItem: true,
     requires: [
       'name-tag'
