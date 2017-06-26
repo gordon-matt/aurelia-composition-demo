@@ -9,6 +9,6 @@ export class Widget {
   constructor(private ea: EventAggregator) {}
 
   showSettings() {
-    this.ea.publish('show-widget-settings', this.model);
+    this.ea.publish('toggle-widget-settings', this.model);
   }
 }

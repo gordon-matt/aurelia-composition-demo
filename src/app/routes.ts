@@ -108,6 +108,7 @@ export default [
     folder: 'dynamic-composition', 
     title: 'Dynamic Composition',
     requires: [
+      './demo.css',
       './widget',
       './widget-sidebar'
     ],

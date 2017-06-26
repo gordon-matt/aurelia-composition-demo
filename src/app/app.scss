@@ -110,6 +110,41 @@ main {
   position: absolute;
   bottom: 16px;
   right: 16px;
+
+  &:hover {
+    .control {
+      opacity: .5;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+
+  .control {
+    border: 0;
+    background: none;
+    background-size: 42px; 
+    width: 42px;
+    height: 42px;
+    color: black;
+    cursor: pointer;
+    outline: none;
+    opacity: 0;
+    transition: opacity .3s;
+
+    &.prev {
+      background-image: url('img/navigation-before-1.png');
+    }
+
+    &.next {
+      background-image: url('img/navigation-next-1.png');
+    }
+
+    &.fullscreen {
+      background-image: url('img/projector-screen.png');
+    }
+  }
 }
 
 html:fullscreen .hide-fullscreen {
@@ -144,20 +179,24 @@ name-tag {
 
 .title-screen {
   background-image: url('img/background@2x.png');
+  background-size: 100%; 
   color: white;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 
   h2 {
     font-size: 64px;
+    padding-bottom: 32px;
+    margin: 0 64px;
+    border-bottom: 2px solid white;
+    text-shadow: 0 2px 5px rgba(0,0,0,.5);
   }
 
   h3 {
+    margin-top: 32px;
     font-size: 32px;
-  }
-
-  hr {
-    width: 100%;
-    margin: 16px;
   }
 }
 

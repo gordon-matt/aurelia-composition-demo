@@ -11,12 +11,17 @@ export class WidgetSidebar {
 
   hide() {
     this.isOpen = false;
+    this.model = null;
   }
 
   bind() {
-    this.sub = this.ea.subscribe('show-widget-settings', data => {
-      this.model = data;
-      this.isOpen = true;
+    this.sub = this.ea.subscribe('toggle-widget-settings', data => {
+      if (this.model === data) {
+        this.hide();
+      } else {
+        this.model = data;
+        this.isOpen = true;
+      }
     });
   }
 

@@ -16,6 +16,10 @@ widget {
 
     .button-settings {
       cursor: pointer;
+      background-image: url('img/cog.png'); 
+      width: 16px;
+      height: 16px;
+      background-size: 16px 16px;
     }
   }
 
