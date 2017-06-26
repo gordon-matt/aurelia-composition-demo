@@ -40,9 +40,9 @@ export class MonacoEditor {
 			value: this.source,
 			language: this.language,
       folding: true,
-      fontSize: 30,
+      fontSize: 20,
       tabSize: 2,
-      lineHeight: 34
+      lineHeight: 24
 		});
 
     this.editor.getModel().updateOptions({ tabSize: 2 });
