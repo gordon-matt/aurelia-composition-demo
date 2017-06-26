@@ -1,0 +1,42 @@
+dashboard-sidebar {
+  position: absolute;
+  top: 74px;
+  right: -250px;
+  bottom: 0;
+  width: 250px;
+  transition: right .3s;
+  border-left: 1px solid #cccccc;
+  background: white;
+  
+  .widget-sidebar-header {
+    padding: 8px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-bottom: 1px solid #ccc;
+    display: flex;
+    align-items: center;
+
+    h3 {
+      color: #ED2B88;
+      flex: 1;
+    }
+
+    .close {
+      background-image: url('img/close.png');
+      background-size: 12px;
+      width: 12px;
+      height: 12px;  
+      color: black;
+      cursor: pointer;
+    }
+  }
+
+  &.active {
+    box-shadow: 2px 2px 8px 0px rgba(0, 0, 0, 0.5);
+    right: 0;
+  }
+
+  compose {
+    display: block;
+    margin: 8px;
+  }
+}

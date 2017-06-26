@@ -1,8 +1,11 @@
 import {EventAggregator, Subscription} from 'aurelia-event-aggregator';
 import {autoinject} from 'aurelia-dependency-injection';
+import {bindable} from 'aurelia-templating';
 
 @autoinject
-export class WidgetSidebar {
+export class DashboardSidebar {
+  @bindable dashboard;
+
   sub: Subscription;
   isOpen = false;
   model: any;
@@ -12,6 +15,13 @@ export class WidgetSidebar {
   hide() {
     this.isOpen = false;
     this.model = null;
+  }
+
+  removeWidget() {
+    let index = this.dashboard.widgets.indexOf(this.model);
+    if (index !== -1) {
+      this.dashboard.widgets.splice(index, 1);
+    }
   }
 
   bind() {

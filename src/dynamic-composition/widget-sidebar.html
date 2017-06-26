@@ -1,9 +1,0 @@
-<template class="${isOpen ? 'active' : ''}">
-  <require from="./widget-sidebar.css"></require>
-
-  <h3>Settings</h3>
-  
-  <compose if.bind="model"
-           view-model.bind="model"
-           view="./widgets/${model.type}-settings.html"></compose>
-</template>

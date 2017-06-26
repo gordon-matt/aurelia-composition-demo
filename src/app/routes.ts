@@ -110,14 +110,14 @@ export default [
     requires: [
       './demo.css',
       './widget',
-      './widget-sidebar'
+      './dashboard-sidebar'
     ],
     files: [
       'demo.html',
       'widget.ts',
       'widget.html',
-      'widget-sidebar.ts',
-      'widget-sidebar.html'
+      'dashboard-sidebar.ts',
+      'dashboard-sidebar.html'
     ],
     model: {
       people: people,
