@@ -1,10 +1,9 @@
-import {bindable, processContent} from 'aurelia-templating';
-import {bindingMode} from 'aurelia-binding';
-import {TaskQueue} from 'aurelia-task-queue';
-import {autoinject} from 'aurelia-dependency-injection'; 
-import {DOM, FEATURE} from 'aurelia-pal';
+import {
+  processContent,
+  bindingMode, bindable,
+  DOM, FEATURE
+} from 'aurelia-framework';
 
-@autoinject
 @processContent(childrenAsTemplateParts('selected-item-template', 'list-item-template'))
 export class DropDown {
   @bindable items;
@@ -13,8 +12,6 @@ export class DropDown {
 
   button: HTMLElement;
   listIsOpen = false;
-
-  constructor(private taskQueue: TaskQueue) {}
 
   select(item) {
     this.selectedItem = item;
@@ -26,7 +23,7 @@ export class DropDown {
       DOM.removeEventListener('click', this.toggleList, false);
     } else {
       this.listIsOpen = true;
-      this.taskQueue.queueTask(() => DOM.addEventListener('click', this.toggleList, false));
+      setTimeout(() => DOM.addEventListener('click', this.toggleList, false));
     }
   }
 }

@@ -1,6 +1,5 @@
-import {bindable} from 'aurelia-templating';
+import {bindable, autoinject} from 'aurelia-framework';
 import {EventAggregator} from 'aurelia-event-aggregator';
-import {autoinject} from 'aurelia-dependency-injection';
 
 @autoinject
 export class Widget {

@@ -1,6 +1,5 @@
 import {EventAggregator, Subscription} from 'aurelia-event-aggregator';
-import {autoinject} from 'aurelia-dependency-injection';
-import {bindable} from 'aurelia-templating';
+import {autoinject, bindable} from 'aurelia-framework';
 
 @autoinject
 export class DashboardSidebar {

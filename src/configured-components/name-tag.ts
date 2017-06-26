@@ -1,4 +1,4 @@
-import {customElement, useView, bindable} from 'aurelia-templating';
+import {customElement, useView, bindable} from 'aurelia-framework';
 
 @customElement('name-tag')
 @useView('./name-tag.html')

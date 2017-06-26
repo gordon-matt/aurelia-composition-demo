@@ -76,25 +76,12 @@ export default [
     title: 'Slot Composition',
     agendaItem: true,
     requires: [
-      'name-tag'
+      'name-tag.html'
     ],
     files: [
       'demo.html',
-      'name-tag.ts',
       'name-tag.html'
     ] 
-  },
-  { 
-    folder: 'html-components', 
-    title: 'HTML Components',
-    agendaItem: true,
-    requires: [
-      'name-tag.html'
-    ],
-    files: [
-      'demo.html',
-      'name-tag.html'
-    ]
   },
   { 
     folder: 'part-composition', 
