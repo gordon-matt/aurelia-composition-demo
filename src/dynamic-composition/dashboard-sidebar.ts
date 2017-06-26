@@ -21,6 +21,8 @@ export class DashboardSidebar {
     if (index !== -1) {
       this.dashboard.widgets.splice(index, 1);
     }
+
+    this.hide();
   }
 
   bind() {

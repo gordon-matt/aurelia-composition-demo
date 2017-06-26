@@ -17,7 +17,9 @@ const people = [
 const widgets = [
  {
   type: 'a',
-  title: 'Widget A'
+  title: 'Widget A',
+  people: people,
+  selectedPerson: people[0]
  },
  {
   type: 'b',

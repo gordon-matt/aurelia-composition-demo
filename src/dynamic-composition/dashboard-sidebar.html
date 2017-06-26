@@ -10,5 +10,6 @@
            view-model.bind="model"
            view="./widgets/${model.type}-settings.html"></compose>
 
-  <button click.trigger="removeWidget()">Remove Widget</button>
+  <button class="button-remove-widget"
+          click.trigger="removeWidget()">Remove Widget</button>
 </template>
