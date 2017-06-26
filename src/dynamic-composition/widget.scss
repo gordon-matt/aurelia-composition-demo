@@ -5,13 +5,14 @@ widget {
   box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.3);
 
   .widget-header {
-    border-bottom: 1px solid #cccccc;
+    background: #f4f4f4;
     padding: 4px;
     display: flex;
     font-size: 14px;
     
     h4 {
       flex: 1;
+      font-weight: bold;
     }
 
     .button-settings {
