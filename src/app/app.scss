@@ -177,7 +177,7 @@ name-tag {
   margin: 8px;
 }
 
-.title-screen {
+.title-screen, .question-screen {
   background-image: url('img/background@2x.png');
   background-size: 100%; 
   color: white;
@@ -192,11 +192,30 @@ name-tag {
     margin: 0 64px;
     border-bottom: 2px solid white;
     text-shadow: 0 2px 5px rgba(0,0,0,.5);
+    letter-spacing: 6px;
   }
 
   h3 {
     margin-top: 32px;
     font-size: 32px;
+  }
+}
+
+.question-screen {
+  h2 {
+    border-bottom: none;
+    letter-spacing: 12px;
+  }
+}
+
+.agenda {
+  margin: 64px 128px;
+
+  > li {
+    list-style: circle;
+    font-size: 42px;
+    color: $primaryColor;
+    line-height: 64px;
   }
 }
 

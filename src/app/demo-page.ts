@@ -4,6 +4,7 @@ import {InlineViewStrategy} from 'aurelia-framework';
 import {HttpClient} from 'aurelia-fetch-client';
 import {relativeToFile} from 'aurelia-path';
 import {autoinject} from 'aurelia-dependency-injection';
+import {Router} from 'aurelia-router';
 
 @autoinject
 export class Demo {
@@ -12,8 +13,9 @@ export class Demo {
   files: any[];
   activeFile: any;
   model: any;
+  agenda: any[];
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private router: Router) {}
 
   @computedFrom('files[0].text')
   get previewSource() {
@@ -28,6 +30,7 @@ export class Demo {
   async activate(params, instruction: any) {
     this.settings = instruction.navModel.settings;
     this.model = this.settings.model;
+    this.agenda = this.router.navigation.filter(x => x.settings.agendaItem);
 
     if (this.settings.requires) {
       this.requires = this.settings.requires

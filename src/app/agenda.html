@@ -1,0 +1,13 @@
+<template>
+  <section>
+    <demo-header>${settings.title}</demo-header>
+
+    <article>
+      <ul class="agenda">
+        <li repeat.for="item of agenda">
+          ${item.title}
+        </li>
+      </ul>
+    </article>
+  </section>
+</template>

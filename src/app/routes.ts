@@ -38,11 +38,17 @@ export default [
   { 
     folder: 'title', 
     title: 'Title',
-    view: '../title/index.html'
+    view: '../app/title.html'
+  },
+  { 
+    folder: 'agenda', 
+    title: 'Agenda',
+    view: '../app/agenda.html'
   },
   { 
     folder: 'basic-components', 
     title: 'Basic Components',
+    agendaItem: true,
     requires: [
       'name-tag'
     ],
@@ -55,6 +61,7 @@ export default [
   { 
     folder: 'configured-components', 
     title: 'Configured Components',
+    agendaItem: true,
     requires: [
       'name-tag'
     ],
@@ -67,6 +74,7 @@ export default [
   { 
     folder: 'shadow-dom', 
     title: 'Shadow DOM',
+    agendaItem: true,
     requires: [
       'name-tag'
     ],
@@ -79,6 +87,7 @@ export default [
   { 
     folder: 'html-components', 
     title: 'HTML Components',
+    agendaItem: true,
     requires: [
       'name-tag.html'
     ],
@@ -90,6 +99,7 @@ export default [
   { 
     folder: 'part-composition', 
     title: 'Part Composition',
+    agendaItem: true,
     requires: [
       'drop-down',
       'name-tag.html'
@@ -107,6 +117,7 @@ export default [
   { 
     folder: 'dynamic-composition', 
     title: 'Dynamic Composition',
+    agendaItem: true,
     requires: [
       './demo.css',
       './widget',
@@ -125,6 +136,16 @@ export default [
         widgets: widgets        
       }
     }
+  },
+  { 
+    folder: 'review', 
+    title: 'Review',
+    view: '../app/agenda.html'
+  },
+  { 
+    folder: 'questions', 
+    title: 'Q&A',
+    view: '../app/questions.html'
   }
 ].map((x: any) => {
   return {
@@ -135,6 +156,7 @@ export default [
     activationStrategy: activationStrategy.replace,
     settings: { 
       title: x.title,
+      agendaItem: !!x.agendaItem,
       view: x.view ? x.view : './demo-page.html', 
       model: x.model,
       requires: x.requires ? x.requires.map(y => join(x.folder, y)) : null,
