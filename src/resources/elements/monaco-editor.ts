@@ -40,7 +40,7 @@ export class MonacoEditor {
 			value: this.source,
 			language: this.language,
       folding: true,
-      fontSize: 18,
+      fontSize: 20,
       tabSize: 2,
       lineHeight: 24
 		});

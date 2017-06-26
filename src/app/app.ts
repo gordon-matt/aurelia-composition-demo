@@ -18,9 +18,9 @@ export class App {
 
   activate() {
     DOM.addEventListener('keyup', evt => {
-      if (evt.keyCode === 34) {
+      if (evt.keyCode === 34 || evt.keyCode == 120) {
         this.next();
-      } else if (evt.keyCode == 33) {
+      } else if (evt.keyCode == 33 || evt.keyCode == 118) {
         this.previous();
       }
     }, false);
